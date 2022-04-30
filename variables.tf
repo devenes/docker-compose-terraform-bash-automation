@@ -10,6 +10,16 @@ variable "profile" {
   default = "default"
 }
 
+variable "backend" {
+  default     = "terraform-env-bucket"
+  description = "The name of the S3 bucket to store Terraform state"
+}
+
+variable "tf_key" {
+  default     = "tf/terraform.tfstate"
+  description = "The key of the S3 bucket to store Terraform state"
+}
+
 ########################################
 # Required AWS Resources Configuration #
 ########################################
