@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = var.backend
-    key    = var.tf_key
-    region = var.region
+    bucket = "terraform-env-bucket"
+    key    = "tf/terraform.tfstate"
+    region = "us-east-1"
   }
 }
 
