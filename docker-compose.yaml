@@ -4,7 +4,7 @@ services:
     database:
         image: mysql:5.7
         environment:
-            MYSQL_ROOT_PASSWORD: R123456password
+            MYSQL_ROOT_PASSWORD: R1234r
             MYSQL_DATABASE: todo_db
             MYSQL_USER: admin
             MYSQL_PASSWORD: devenes123
