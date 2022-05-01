@@ -1,6 +1,4 @@
 #! /bin/bash
-
-
 yum update -y
 amazon-linux-extras install docker -y
 systemctl start docker
@@ -18,7 +16,7 @@ services:
     database:
         image: mysql:5.7
         environment:
-            MYSQL_ROOT_PASSWORD: R123456password
+            MYSQL_ROOT_PASSWORD: R1234r
             MYSQL_DATABASE: todo_db
             MYSQL_USER: admin
             MYSQL_PASSWORD: devenes123
@@ -71,7 +69,6 @@ connection = mysql.connect()
 connection.autocommit(True)
 cursor = connection.cursor()
 
-
 def init_todo_db():
     drop_table = 'DROP TABLE IF EXISTS todo_db.todos;'
     todos_table = """
@@ -86,20 +83,13 @@ def init_todo_db():
     data = """
     INSERT INTO todo_db.todos (title, description, is_done)
     VALUES
-        ("Project 2", "Work on project 2 with teammates", 1 ),
+        ("Learn to use Jenkinsfile", "Work on Jenkins with teammates", 1 ),
         ("Kubernetes Documentation", "Study and learn how to read Kubernetes docs", 0),
-        ("Work on CC Phonebook", "Solve python coding challenge about phonebook app", 0);
-        ("Try to learn Docker", "Study and learn how to use Docker", 0);
-        ("Learn to use Git", "Study and learn how to use Git", 1);
-        ("Learn to use Gitlab", "Study and learn how to use Gitlab", 1);
-        ("Learn to use Jenkins", "Study and learn how to use Jenkins", 1);
-        ("Learn to use Jenkinsfile", "Study and learn how to use Jenkinsfile", 1);
-        ("Work on Golang", "Study and learn how to use Golang", 1);
+        ("Work on Golang", "Study and learn how to use Golang", 0);
     """
     cursor.execute(drop_table)
     cursor.execute(todos_table)
     cursor.execute(data)
-
 
 def get_all_tasks():
     query = """
@@ -107,10 +97,8 @@ def get_all_tasks():
     """
     cursor.execute(query)
     result = cursor.fetchall()
-    tasks = [{'task_id': row[0], 'title':row[1], 'description':row[2],
-              'is_done': bool(row[3])} for row in result]
+    tasks =[{'task_id':row[0], 'title':row[1], 'description':row[2], 'is_done': bool(row[3])} for row in result]
     return tasks
-
 
 def find_task(id):
     query = f"""
@@ -120,10 +108,8 @@ def find_task(id):
     row = cursor.fetchone()
     task = None
     if row is not None:
-        task = {'task_id': row[0], 'title': row[1],
-                'description': row[2], 'is_done': bool(row[3])}
+        task = {'task_id':row[0], 'title':row[1], 'description':row[2], 'is_done': bool(row[3])}
     return task
-
 
 def insert_task(title, description):
     insert = f"""
@@ -137,8 +123,7 @@ def insert_task(title, description):
     """
     cursor.execute(query)
     row = cursor.fetchone()
-    return {'task_id': row[0], 'title': row[1], 'description': row[2], 'is_done': bool(row[3])}
-
+    return {'task_id':row[0], 'title':row[1], 'description':row[2], 'is_done': bool(row[3])}
 
 def change_task(task):
     update = f"""
@@ -153,8 +138,7 @@ def change_task(task):
     """
     cursor.execute(query)
     row = cursor.fetchone()
-    return {'task_id': row[0], 'title': row[1], 'description': row[2], 'is_done': bool(row[3])}
-
+    return {'task_id':row[0], 'title':row[1], 'description':row[2], 'is_done': bool(row[3])}
 
 def remove_task(task):
     delete = f"""
@@ -170,7 +154,6 @@ def remove_task(task):
     row = cursor.fetchone()
     return True if row is None else False
 
-
 @app.route('/')
 def home():
     return "Welcome to Enes Turan's To-Do API Service"
@@ -178,23 +161,21 @@ def home():
 
 @app.route('/todos', methods=['GET'])
 def get_tasks():
-    return jsonify({'tasks': get_all_tasks()})
+    return jsonify({'tasks':get_all_tasks()})
 
 
-@app.route('/todos/<int:task_id>', methods=['GET'])
+@app.route('/todos/<int:task_id>', methods = ['GET'])
 def get_task(task_id):
     task = find_task(task_id)
     if task == None:
         abort(404)
     return jsonify({'task found': task})
 
-
 @app.route('/todos', methods=['POST'])
 def add_task():
     if not request.json or not 'title' in request.json:
         abort(400)
-    return jsonify({'newly added task': insert_task(request.json['title'], request.json.get('description', ''))}), 201
-
+    return jsonify({'newly added task':insert_task(request.json['title'], request.json.get('description', ''))}), 201
 
 @app.route('/todos/<int:task_id>', methods=['PUT'])
 def update_task(task_id):
@@ -208,13 +189,12 @@ def update_task(task_id):
     task['is_done'] = int(request.json.get('is_done', int(task['is_done'])))
     return jsonify({'updated task': change_task(task)})
 
-
 @app.route('/todos/<int:task_id>', methods=['DELETE'])
 def delete_task(task_id):
     task = find_task(task_id)
     if task == None:
         abort(404)
-    return jsonify({'result': remove_task(task)})
+    return jsonify({'result':remove_task(task)})
 
 
 @app.errorhandler(404)
