@@ -227,9 +227,9 @@ def bad_request(error):
     return make_response(jsonify({'error': 'Bad request'}), 400)
 
 
-if __name__ == '__main__':
+if __name__== '__main__':
     init_todo_db()
-    # app.run(debug=False)
+    # app.run(debug=True)
     app.run(host='0.0.0.0', port=80)
 EOF
 
