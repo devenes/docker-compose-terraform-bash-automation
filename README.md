@@ -2,10 +2,12 @@
 
 # Flask API Containerization and Deployment
 
-Python Flask API Containerization and Deployment on AWS Cloud with Docker Compose and Terraform using Bash Scripts
+Python Flask API Containerization and Deployment on AWS Cloud with Docker Compose and Terraform using Bash Scripts and GitHub Actions
 
-## Expected Output
+## Expected Server Output
 
 ![output](./output.png)
+
+## Expected Terraform Output
 
 ![output](./terraform_output.png)
