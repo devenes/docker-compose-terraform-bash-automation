@@ -19,9 +19,9 @@ services:
             MYSQL_ROOT_PASSWORD: R1234r
             MYSQL_DATABASE: todo_db
             MYSQL_USER: admin
-            MYSQL_PASSWORD: admin1234
+            MYSQL_PASSWORD: devenes123
         networks:
-            - network1
+            - devenesnet
     myapp:
         build: .
         restart: always
@@ -30,10 +30,10 @@ services:
         ports:
             - "80:80"
         networks:
-            - network1
+            - devenesnet
 
 networks:
-    network1:
+    devenesnet:
         driver: bridge
 EOF
 
@@ -60,7 +60,7 @@ app = Flask(__name__)
 # Configure mysql database
 app.config['MYSQL_DATABASE_HOST'] = 'database'
 app.config['MYSQL_DATABASE_USER'] = 'admin'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'admin1234'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'devenes123'
 app.config['MYSQL_DATABASE_DB'] = 'todo_db'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 mysql = MySQL()
@@ -83,9 +83,9 @@ def init_todo_db():
     data = """
     INSERT INTO todo_db.todos (title, description, is_done)
     VALUES
-        ("Project 2", "Work on project 2 with teammates", 1 ),
-        ("Cloudformation Documentation", "Study and learn how to read cloudformation docs", 0),
-        ("Work on CC Phonebook", "Solve python coding challenge about phonebook app", 0);
+        ("Learn to use Jenkinsfile", "Work on Jenkins with teammates", 1 ),
+        ("Kubernetes Documentation", "Study and learn how to read Kubernetes docs", 0),
+        ("Work on Golang", "Study and learn how to use Golang", 0);
     """
     cursor.execute(drop_table)
     cursor.execute(todos_table)
@@ -156,7 +156,7 @@ def remove_task(task):
 
 @app.route('/')
 def home():
-    return "Welcome to Callahan's To-Do API Service"
+    return "Welcome to Enes Turan's To-Do API Service"
 
 
 @app.route('/todos', methods=['GET'])
