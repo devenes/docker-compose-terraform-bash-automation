@@ -1,0 +1,12 @@
+*.tf
+*.sh
+*.md
+*.png
+*.jpg
+*.jpeg
+Dockerfile
+Dockerfile.*
+.git
+.gitignore
+.gitmodules
+.github\*
