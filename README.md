@@ -10,15 +10,9 @@
 
 <p align="center">
 
-  [![Terraform Deployment](https://github.com/devenes/docker-compose-terraform-bash-api-automation/actions/workflows/terraform.yml/badge.svg)](https://github.com/devenes/docker-compose-terraform-bash-api-automation/actions/workflows/terraform.yml)
+<div align="center">
 
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/devenes/docker-compose-terraform-bash-automation?color=56BEB8">
-
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/devenes/docker-compose-terraform-bash-automation?color=56BEB8">
-
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/devenes/docker-compose-terraform-bash-automation?color=56BEB8">
-
-  <img alt="License" src="https://img.shields.io/github/license/devenes/docker-compose-terraform-bash-automation?color=56BEB8">
+  [![Terraform Deployment](https://github.com/devenes/docker-compose-terraform-bash-api-automation/actions/workflows/terraform.yml/badge.svg)](https://github.com/devenes/docker-compose-terraform-bash-api-automation/actions/workflows/terraform.yml)  <img alt="Github top language" src="https://img.shields.io/github/languages/top/devenes/docker-compose-terraform-bash-automation?color=56BEB8">  <img alt="Github language count" src="https://img.shields.io/github/languages/count/devenes/docker-compose-terraform-bash-automation?color=56BEB8">  <img alt="Repository size" src="https://img.shields.io/github/repo-size/devenes/docker-compose-terraform-bash-automation?color=56BEB8">  <img alt="License" src="https://img.shields.io/github/license/devenes/docker-compose-terraform-bash-automation?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/devenes/docker-compose-terraform-bash-automation?color=56BEB8" /> -->
 
@@ -26,6 +20,7 @@
 
   <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/devenes/docker-compose-terraform-bash-automation?color=56BEB8" /> -->
 </p>
+</div>
 
 <!-- Status -->
 
