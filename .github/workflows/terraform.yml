@@ -1,15 +1,16 @@
 name: "Terraform Deployment"
+
 on:
   # Manual trigger
   workflow_dispatch:
-  push:
-    branches: [master, main]
 
+  push:
+    branches: [release]
     paths:
       - "*/**"
 
   pull_request:
-    branches: [master]
+    branches: [release]
 
 defaults:
   run:
